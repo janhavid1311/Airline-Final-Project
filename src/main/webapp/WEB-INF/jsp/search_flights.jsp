@@ -1,70 +1,27 @@
+<%@page import="com.airline_reservation.model.User"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<script>
- function valid()
-     {
-         var source=document.getElementById('source').value;
-         var destination=document.getElementById('destination').value;
-         
-        
-         var flag = true;
-         var sourceregex=/^[a-zA-Z ]{3,}$/;
-         var destinationregex=/^[a-zA-Z ]{3,}$/;
-   		
-   		 id1.innerHTML='';
-       id2.innerHTML='';
-         
-         
-         if(source=='')
-         {
-            id1.innerHTML='plz fill source';
-         flag=false;
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/mycss.css">
 
-         }
-         
-         else
-           if(sourceregex.test(source)==false)
-        {
-          id1.innerHTML="incorrect format";
-          //location.replace()
-          flag=false;
-
-        } 
-
-
-        //password
-
-        if(destination=='')
-         {
-            id2.innerHTML='plz fill destination';
-            flag= false;
-         }
-       
-   	 
-       else
-         if(destinationregex.test(destination)==false)
-        {
-          id2.innerHTML="incorrect format";
-          //location.replace()
-          flag=false;
-
-        } 
-       
-         if (!flag) { 
-            event.preventDefault();
-        } else {
-        }
-        return flag;
-
-     }
-    </script>
+<title>Welcome</title>
 </head>
+<body background="img/air1.png">
+<div class="header">
+  <h1>Header</h1>
+
+</div>
+
+<div class="topnav">
+<%@include file="user_menu.html" %>
+</div>
+
 <body>
 <center>Search Flights</center>
 	<form id="searchFlight" modelAttribute="flt"  action="search_flights.do"	method="post" onsubmit="valid()">

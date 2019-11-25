@@ -1,17 +1,14 @@
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/mycss.css">
 
-<title>Registration</title>
-
-
-  <script>
+ <script>
 
 
      function valid()
@@ -148,37 +145,34 @@
 
      }
     </script>
-
+<title>Login</title>
 </head>
-<body>
+<body  background="img/air1.png">
 <div class="header">
-  <h1>Header</h1>
-  <p>Resize the browser window to see the responsive effect.</p>
+  <h1>Hawai Jahaz</h1>
+
 </div>
 
-< <div class="topnav">
-  <%@include file="menu.html" %>
+<div class="topnav">
+<%@include file="menu.html" %>
 </div>
- 
+
 <div class="row">
-<div class="column side1">
-<img src="img/pic1.jpg" height="30%" width="30%">
-<img src="img/pic2.jpg" height="30%" width="30%">
-<br>
-<img src="img/pic3.jpg" height="30%" width="30%">
-<img src="img/pic4.jpg" height="30%" width="30%">
-</div>
+
 
 <div class="column side2">
-    <center>Registration For User</center>
+      <center>Registration For User</center>
 	<form id="regForm" modelAttribute="user" action="register.do" method="post" onsubmit="valid()" >
 		<table align="center">
 			<tr>
+			<td>
 				<label><b>Title</b></label>
 				<select name= "title" id="title">
 				<option value= "Mr.">Mr.</option>
 				<option value= "Mrs.">Mrs.</option>
 				<option value= "Ms.">Ms.</option>
+				</select>
+				</td>
 			</tr>
 			<tr>
 				<td>FirstName</td>
@@ -233,8 +227,7 @@
 </div>
 </div>
 <div class="footer">
-  <p>Footer</p>
+  <p>Airline Reservation</p>
 </div>
-
 </body>
 </html>

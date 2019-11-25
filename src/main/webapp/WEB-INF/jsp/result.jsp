@@ -1,3 +1,5 @@
+<%@page import="com.airline_reservation.model.Booking"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+ <div>
 <hr>
 <table align="center" border="2">
 <tr>
@@ -21,7 +23,7 @@
 
 
  <c:forEach items="${booking_list}" var="booking">
- <div>
+
 
         <tr>
             <td><c:out value="${booking.booking_id}"/></td>
@@ -33,11 +35,12 @@
              
           
         </tr>
-        </div>
+      
     </c:forEach> 
      
    
    
      </table>
+       </div>
 </body>
 </html>

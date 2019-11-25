@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -87,7 +88,8 @@ public class UserDaoImpl implements UserDaoIntf{
 		
 		return finallist;
 	}		
-		@SuppressWarnings("unchecked")
+		
+	@SuppressWarnings("unchecked")
 		public List<Booking> result(String email_id)
 		{
 			System.out.println("email_id:"+email_id);
@@ -104,6 +106,38 @@ public class UserDaoImpl implements UserDaoIntf{
 			return lis;
 		}
 
+	public int addbook(Booking booking){
+		
+
+	    
+	    	System.out.println(booking);
+	
+		em.persist(booking);
+		
+		System.out.println("end");
+	
+	
+	   
+	    return 0;
+		
+	}
+	public boolean cancelBooking(String booking_id, String email_id) {
+		boolean flag=false;
+		Query query = em.createNativeQuery("delete from booking_master where BOOKING_ID=:booking_id and email_id=:email_id" );
+		query.setParameter("booking_id", booking_id);
+		query.setParameter("email_id", email_id);
+		int res = query.executeUpdate();
+		
+		System.out.println(res);
+		if(res>0){
+			flag=true;
+		}
+		else{
+			System.out.println("Unable to cancel booking "+booking_id);
+		}
+		return flag;
+		
+	}
 
 	}
 

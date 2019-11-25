@@ -11,7 +11,7 @@
 
 <title>Welcome</title>
 </head>
-<body>
+<body  background="img/air1.png">
 <div class="header">
   <h1>Header</h1>
 
@@ -22,13 +22,7 @@
 </div>
  
 <div class="row">
-<div class="column side1">
-<img src="img/pic1.jpg" height="30%" width="30%">
-<img src="img/pic2.jpg" height="30%" width="30%">
-<br>
-<img src="img/pic3.jpg" height="30%" width="30%">
-<img src="img/pic4.jpg" height="30%" width="30%">
-</div>
+
 
 <div class="column side2">
 	<table>
@@ -45,7 +39,7 @@
 	
 </div>
 <div class="footer">
-  <p>Footer</p>
+  <p>Airline Reservation</p>
 </div>
 
 

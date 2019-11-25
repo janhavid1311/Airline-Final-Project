@@ -8,8 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/mycss.css">
 
-<title>Login</title>
-
 <script>
 
 
@@ -51,10 +49,12 @@
 
      }
     </script>
+
+<title>Login</title>
 </head>
-<body>
+<body  background="img/air1.png">
 <div class="header">
-  <h1>HAWAI JAHAZ</h1>
+  <h1>Hawai Jahaz</h1>
 
 </div>
 
@@ -63,16 +63,10 @@
 </div>
 
 <div class="row">
-<div class="column side1">
-<img src="img/pic1.jpg" height="30%" width="30%">
-<img src="img/pic2.jpg" height="30%" width="30%">
-<br>
-<img src="img/pic3.jpg" height="30%" width="30%">
-<img src="img/pic4.jpg" height="30%" width="30%">
-</div>
+
 
 <div class="column side2">
-    <center>Login For Admin</center>
+     <center>Login For Admin</center>
 	<form id="loginForm" modelAttribute="adm"  action="admin_login.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
@@ -103,7 +97,7 @@
 </div>
 </div>
 <div class="footer">
-  <p>Footer</p>
+  <p>Airline Reservation</p>
 </div>
 </body>
 </html>

@@ -13,7 +13,7 @@
 
 <title>Welcome</title>
 </head>
-<body>
+<body  background="img/air1.png">
 <div class="header">
   <h1>Header</h1>
 

@@ -13,4 +13,7 @@ public interface UserServiceIntf {
 	public User checkUserLogin(User user);
 	public List<Flights> searchFlights_user(String source,String destination,Date journey_date, String b_class,int passenger_count);
 	public List<Booking> result(String email_id);
+	public int addbook(Booking booking);
+	public boolean cancelBooking(String booking_id, String email_id);
+
 }

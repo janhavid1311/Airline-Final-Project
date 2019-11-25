@@ -1,12 +1,16 @@
 package com.airline_reservation.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +23,7 @@ public class Booking {
 	private Date journey_date;
 	private String b_class;
 	private int passenger_count;
+	private int total_fare;
 
 	@ManyToOne
 	@JoinColumn(name="flight_id")
@@ -27,6 +32,18 @@ public class Booking {
 	@ManyToOne
 	@JoinColumn(name="email_id")
 	private User user;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="booking_id")
+	private List<Passenger> passenger = new ArrayList<Passenger>();
+
+	public List<Passenger> getPassenger() {
+		return passenger;
+	}
+
+	public void setPassenger(List<Passenger> passenger) {
+		this.passenger = passenger;
+	}
 
 	public String getBooking_id() {
 		return booking_id;
@@ -84,11 +101,23 @@ public class Booking {
 		this.user = user;
 	}
 
+	
+	
+
+	public int getTotal_fare() {
+		return total_fare;
+	}
+
+	public void setTotal_fare(int total_fare) {
+		this.total_fare = total_fare;
+	}
+	
+
 	@Override
 	public String toString() {
 		return "Booking [booking_id=" + booking_id + ", booking_date=" + booking_date + ", journey_date=" + journey_date
-				+ ", b_class=" + b_class + ", passenger_count=" + passenger_count + ", flight=" + flight + ", user="
-				+ user + "]";
+				+ ", b_class=" + b_class + ", passenger_count=" + passenger_count + ", total_fare=" + total_fare
+				+ ", flight=" + flight + ", user=" + user + ", passenger=" + passenger + "]";
 	}
 
 	public Booking() {

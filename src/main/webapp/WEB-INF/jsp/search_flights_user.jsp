@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -5,7 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/mycss.css">
+
+ 
+<title>Booking History</title>
 <script>
  function valid()
      {
@@ -65,7 +70,20 @@
      }
     </script>
 </head>
-<body>
+<body  background="img/air1.png">
+<div class="header">
+  <h1>Hawai Jahaz</h1>
+
+</div>
+
+<div class="topnav">
+<%@include file="user_menu.html" %>
+</div>
+
+<div class="row">
+
+
+<div class="column side2">
 <center>Search Flights</center>
 	<form id="searchFlights" modelAttribute="flt1"  action="search_flights_user.do"	method="post" onsubmit="valid()">
 		<table align="center">
@@ -89,7 +107,7 @@
 			</tr> 
 			<tr>
 			<td>
-				<label>No. of Passengers:</label> <input type="text" name="passengers">
+				<label>No. of Passengers:</label> <input type="text" name="passenger_count">
 				<select name= "noOfPsg" id="title">
 				<option value= "1">1</option>
 				<option value= "2">2</option>
@@ -123,6 +141,10 @@
 
 
  <c:forEach items="${flights_list}" var="flight">
+ <form action="booking2.do" method="post">
+ <input type="hidden" name="flight_id" value="${flight.flight_id}"/>
+ <input type="hidden" name="base_fare_eco" value="${flight.base_fare_eco}"/>
+ 
  <div>
 
         <tr>
@@ -134,12 +156,22 @@
              <td><c:out value="${flight.route.route_id}"/></td> 
              <td><c:out value="${flight.route.source}"/></td> 
              <td><c:out value="${flight.route.destination}"/></td> 
+             <td><c:out value="${flight.base_fare_eco}"/></td>
+             <td><input type="submit" value="Book"> </td>
              
-          
         </tr>
+         </div>
+  </form>
+
+
+
+        
     </c:forEach> 
    
     </div>
      </table>
+     <div class="footer">
+  <p>Airline Reservation</p>
+</div>
 </body>
 </html>

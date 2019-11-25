@@ -1,4 +1,3 @@
-
 <%@page import="com.airline_reservation.model.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -13,27 +12,21 @@
 
 <title>Welcome</title>
 </head>
-<body>
+<body background="img/air1.png">
 <div class="header">
   <h1>Header</h1>
 
 </div>
 
 <div class="topnav">
-   <%@include file="admin_menu.html" %>
+<%@include file="admin_menu.html" %>
 </div>
 
 <div class="row">
-<!-- <div class="column side1">
-<img src="img/pic1.jpg" height="30%" width="30%">
-<img src="img/pic2.jpg" height="30%" width="30%">
-<br>
-<img src="img/pic3.jpg" height="30%" width="30%">
-<img src="img/pic4.jpg" height="30%" width="30%">
-</div> -->
 
-<!-- <div class="column side2"> -->
-<h3><center>Flight Details></center></h3>
+
+<div class="column side2">
+ <h3><center>Flight Details</center></h3>
 <hr size="4" color="gray"/>
 
 <table align="center" border="2">
@@ -63,12 +56,9 @@
     </c:forEach> 
 </table>
 </div>
-	
 </div>
 <div class="footer">
-  <p>Footer</p>
+  <p>Airline Reservation</p>
 </div>
-
-
 </body>
 </html>

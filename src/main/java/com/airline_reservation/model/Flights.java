@@ -24,7 +24,42 @@ public class Flights {
 	private String departure_time;
 	private int business_seats;
 	private int economy_seats;
+	private int base_fare_eco;
+	private int base_fare_busi;
+	private int fuel_charge;
+	private int security_fee;
+	private int dev_fee;
 	
+	public int getBase_fare_eco() {
+		return base_fare_eco;
+	}
+	public void setBase_fare_eco(int base_fare_eco) {
+		this.base_fare_eco = base_fare_eco;
+	}
+	public int getBase_fare_busi() {
+		return base_fare_busi;
+	}
+	public void setBase_fare_busi(int base_fare_busi) {
+		this.base_fare_busi = base_fare_busi;
+	}
+	public int getFuel_charge() {
+		return fuel_charge;
+	}
+	public void setFuel_charge(int fuel_charge) {
+		this.fuel_charge = fuel_charge;
+	}
+	public int getSecurity_fee() {
+		return security_fee;
+	}
+	public void setSecurity_fee(int security_fee) {
+		this.security_fee = security_fee;
+	}
+	public int getDev_fee() {
+		return dev_fee;
+	}
+	public void setDev_fee(int dev_fee) {
+		this.dev_fee = dev_fee;
+	}
 	@ManyToOne
 	@JoinColumn(name="route_id")
 	private Route route;
@@ -32,6 +67,18 @@ public class Flights {
 	@OneToMany
 	@JoinColumn(name="flight_id")
 	private List<Booking> booking=new ArrayList<Booking>();
+	
+	
+/*	@OneToOne
+	@JoinColumn(name="flight_id")
+	private Ticket_Fare ticket_Fare;*/
+	
+	public List<Booking> getBooking() {
+		return booking;
+	}
+	public void setBooking(List<Booking> booking) {
+		this.booking = booking;
+	}
 	public String getFlight_id() {
 		return flight_id;
 	}
@@ -71,10 +118,21 @@ public class Flights {
 	public Flights() {
 		super();
 	}
-	@Override
+	
+	
+	/*public Ticket_Fare getTicket_Fare() {
+		return ticket_Fare;
+	}
+	public void setTicket_Fare(Ticket_Fare ticket_Fare) {
+		this.ticket_Fare = ticket_Fare;
+	}*/
+	
+	/*@Override
 	public String toString() {
 		return "Flights [flight_id=" + flight_id + ", arrival_time=" + arrival_time + ", departure_time="
 				+ departure_time + ", business_seats=" + business_seats + ", economy_seats=" + economy_seats
-				+ ", route=" + route + "]";
+				+ ", route=" + route + ", booking=" + booking + "]";
+	}
+	*/
 	} 
-}	 
+

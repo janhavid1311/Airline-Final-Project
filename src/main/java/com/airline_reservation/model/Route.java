@@ -20,7 +20,7 @@ public class Route {
 	private String route_id;
 	private String source;
 	private String destination;
-	@OneToMany(mappedBy="route",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="route",cascade=CascadeType.ALL)
 	
 	private List<Flights> flight_list=new ArrayList<Flights>();
 	public String getRoute_id() {
@@ -50,9 +50,11 @@ public class Route {
 	public Route() {
 		super();
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Route [route_id=" + route_id + ", source=" + source + ", destination=" + destination + ", flight_list="
 				+ flight_list + "]";
+	}*/
+	
 	}
-}
+

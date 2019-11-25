@@ -1,10 +1,12 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/mycss.css">
 <script>
 function valid()
 {
@@ -34,10 +36,24 @@ if (!flag) {
 return flag;
 }
 </script>
+
+<title>Login</title>
 </head>
-<body>
+<body  background="img/air1.png">
+<div class="header">
+  <h1>Hawai Jahaz</h1>
+
+</div>
+
+<div class="topnav">
+<%@include file="admin_menu.html" %>
+</div>
+
+<div class="row">
+
+
 <div class="column side2">
-    <center>Delete Flight</center>
+      <center>Delete Flight</center>
 	<form id="deleteFlt" modelAttribute="dflt"  action="delete_flight.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
@@ -47,6 +63,13 @@ return flag;
 				<td></td>
 				<td align="left"><input type="submit" id="delete" name="delete" value="Delete"></td>
 			</tr>
-
+			</table>
+			</form>
+			
+</div>
+</div>
+<div class="footer">
+  <p>Airline Reservation</p>
+</div>
 </body>
 </html>

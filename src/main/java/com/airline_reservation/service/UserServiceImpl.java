@@ -42,4 +42,15 @@ public class UserServiceImpl implements UserServiceIntf{
 			return lis;
 		}
 
+	 @Transactional
+		public int addbook(Booking booking) {
+			 int res=userDao.addbook(booking);
+			return res;
+		}
+	 
+	 @Transactional
+		public boolean cancelBooking(String booking_id , String email_id) {
+			 return userDao.cancelBooking(booking_id,email_id);
+		}
+
 }
