@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +25,18 @@ public class Booking {
 	private String b_class;
 	private int passenger_count;
 	private int total_fare;
+	private String status;
+	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 
 	@ManyToOne
 	@JoinColumn(name="flight_id")
@@ -36,6 +49,12 @@ public class Booking {
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="booking_id")
 	private List<Passenger> passenger = new ArrayList<Passenger>();
+
+	//@OneToOne(mappedBy="booking",cascade=CascadeType.ALL)
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="booking_id")
+	private Payment payment;
 
 	public List<Passenger> getPassenger() {
 		return passenger;
@@ -102,7 +121,21 @@ public class Booking {
 	}
 
 	
-	
+
+	public Payment getPayment() {
+		return payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
+	@Override
+	public String toString() {
+		return "Booking [booking_id=" + booking_id + ", booking_date=" + booking_date + ", journey_date=" + journey_date
+				+ ", b_class=" + b_class + ", passenger_count=" + passenger_count + ", total_fare=" + total_fare
+				+ ", flight=" + flight + ", user=" + user + ", passenger=" + passenger + "]";
+	}
 
 	public int getTotal_fare() {
 		return total_fare;
@@ -113,13 +146,7 @@ public class Booking {
 	}
 	
 
-	@Override
-	public String toString() {
-		return "Booking [booking_id=" + booking_id + ", booking_date=" + booking_date + ", journey_date=" + journey_date
-				+ ", b_class=" + b_class + ", passenger_count=" + passenger_count + ", total_fare=" + total_fare
-				+ ", flight=" + flight + ", user=" + user + ", passenger=" + passenger + "]";
-	}
-
+	
 	public Booking() {
 		super();
 	}

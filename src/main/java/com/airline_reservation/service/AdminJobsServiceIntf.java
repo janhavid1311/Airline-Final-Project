@@ -17,6 +17,6 @@ public interface AdminJobsServiceIntf {
 	 public User getUser1(String email_id);
 	 public List<Flights> getFlights();
 	 public Flights getFlight1(String flight_id);
-	 
+	 public List<Route> getRoute();
 	 public List<Flights> searchFlights(String source,String destination);
 }

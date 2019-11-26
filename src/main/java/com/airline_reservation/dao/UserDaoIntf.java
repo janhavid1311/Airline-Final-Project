@@ -6,6 +6,7 @@ import java.util.List;
 import com.airline_reservation.model.Admin;
 import com.airline_reservation.model.Booking;
 import com.airline_reservation.model.Flights;
+import com.airline_reservation.model.Payment;
 import com.airline_reservation.model.User;
 
 public interface UserDaoIntf {
@@ -15,4 +16,5 @@ public interface UserDaoIntf {
 	 public List<Booking> result(String email_id);
 	 public int addbook(Booking booking);
 	 public boolean cancelBooking(String booking_id, String email_id);
+	 public boolean makePayment(Booking booking);
 }

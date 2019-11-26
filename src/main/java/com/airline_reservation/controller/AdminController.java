@@ -217,5 +217,12 @@ public class AdminController {
 			return mav;
 		}  
 	 
-
+	 @RequestMapping(value = "/view_route", method = RequestMethod.GET)
+	 public ModelAndView viewRoute() {
+	 	List<Route>  routelist = adminServiceImpl.getRoute();
+	 	 ModelAndView mav = new ModelAndView("view_route");
+	 	 mav.addObject("routelist", routelist);
+	 	 return mav;
+	  }
+	 
 }

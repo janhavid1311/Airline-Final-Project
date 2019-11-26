@@ -12,6 +12,7 @@ import com.airline_reservation.dao.UserDaoImpl;
 import com.airline_reservation.model.Admin;
 import com.airline_reservation.model.Booking;
 import com.airline_reservation.model.Flights;
+import com.airline_reservation.model.Payment;
 import com.airline_reservation.model.User;
 
 
@@ -52,5 +53,11 @@ public class UserServiceImpl implements UserServiceIntf{
 		public boolean cancelBooking(String booking_id , String email_id) {
 			 return userDao.cancelBooking(booking_id,email_id);
 		}
+
+	 @Transactional
+	//public boolean makePayment(Payment payment) {
+	 public boolean makePayment(Booking booking) {
+		 return userDao.makePayment(booking);
+	}
 
 }

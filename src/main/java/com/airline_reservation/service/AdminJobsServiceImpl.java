@@ -3,6 +3,7 @@ package com.airline_reservation.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -65,6 +66,12 @@ public class AdminJobsServiceImpl implements AdminJobsServiceIntf{
 	public List<Flights> searchFlights(String source, String destination) {
 		List<Flights> list=adminJobsDaoImpl.searchFlights(source,destination);
 		return list;
+	}
+
+	  @Transactional
+	public List<Route> getRoute() {
+		List<Route>  list = adminJobsDaoImpl.getRoute();
+		  return list;
 	}
 	
 }

@@ -24,6 +24,7 @@ public class Passenger {
           private int age; 
           private String gender;
           private String email;
+          
           @ManyToOne(cascade=CascadeType.ALL)
           @JoinColumn(name="booking_id")
           private Booking booking;

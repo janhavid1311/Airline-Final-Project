@@ -27,7 +27,7 @@
        
          if(route_id=='')
          {
-            id1.innerHTML='plz fill route_id';
+            id1.innerHTML='please fill route_id';
          flag=false;
 
          }
@@ -36,14 +36,13 @@
            if(route_idregex.test(route_id)==false)
         {
           id1.innerHTML="incorrect format";
-          //location.replace()
           flag=false;
 
         } 
          
          if(source=='')
          {
-            id2.innerHTML='plz fill source';
+            id2.innerHTML='please fill source';
          flag=false;
 
          }
@@ -52,17 +51,14 @@
            if(sourceregex.test(source)==false)
         {
           id2.innerHTML="incorrect format";
-          //location.replace()
           flag=false;
 
         } 
 
 
-        //password
-
         if(destination=='')
          {
-            id3.innerHTML='plz fill destination';
+            id3.innerHTML='please fill destination';
             flag= false;
          }
        
@@ -71,7 +67,6 @@
          if(destinationregex.test(destination)==false)
         {
           id3.innerHTML="incorrect format";
-          //location.replace()
           flag=false;
 
         } 
@@ -79,6 +74,7 @@
          if (!flag) { 
             event.preventDefault();
         } else {
+        	alert('New Route added successfully!!!')
         }
         return flag;
 
@@ -86,11 +82,11 @@
     </script>
 
 
-<title>Login</title>
+<title>::Add Route::</title>
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Hawai Jahaz</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 
@@ -102,20 +98,20 @@
 
 
 <div class="column side2">
- <center>Add New Route</center>
+ <center><h3>Add New Route</h3></center>
 	<form id="addRoute" modelAttribute="rt"  action="add_route.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
 				<td>Route Id: </td>
-				<td><input name="route_id" id="route_id"><div id="id1"></div></td>
+				<td><input name="route_id" id="route_id"><div id="id1" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Source:</td>
-				<td><input type="text" name="source" id="source"><div id="id2"></div></td>
+				<td><input type="text" name="source" id="source"><div id="id2" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Destination:</td>
-				<td><input type="text" name="destination" id="destination"><div id="id3"></div></td>
+				<td><input type="text" name="destination" id="destination"><div id="id3" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td></td>

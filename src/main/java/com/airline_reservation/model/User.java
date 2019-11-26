@@ -8,6 +8,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,8 +32,6 @@ public class User {
 	private long ph_no;
 	
 	
-
-
 	public String getTitle() {
 		return title;
 	}
@@ -90,5 +89,6 @@ public class User {
 				+ last_name + ", password=" + password + ", dob=" + dob + ", gender=" + gender + ", ph_no=" + ph_no
 				+ "]";
 	}
+	
 	
 }

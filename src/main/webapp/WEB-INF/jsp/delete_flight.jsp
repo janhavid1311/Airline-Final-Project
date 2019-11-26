@@ -25,23 +25,23 @@ if(flight_id=='')
            if(flight_idregex.test(flight_id)==false)
         {
         	   id1.innerHTML="incorrect format";
-          //location.replace()
           flag=false;
 
         } 
 if (!flag) { 
     event.preventDefault();
-} else {
+} 
+	else {
 }
 return flag;
 }
 </script>
 
-<title>Login</title>
+<title>::Delete Flight::</title>
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Hawai Jahaz</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 
@@ -53,12 +53,12 @@ return flag;
 
 
 <div class="column side2">
-      <center>Delete Flight</center>
+      <center><h5>Delete Flight</h5></center>
 	<form id="deleteFlt" modelAttribute="dflt"  action="delete_flight.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
 				<td>Flight Id: </td>
-				<td><input name="flight_id" id="flight_id" ><div id="id1"></div></td>
+				<td><input name="flight_id" id="flight_id" ><div id="id1" style="font-style: italic; color: red;"></div></td>
 			</tr>
 				<td></td>
 				<td align="left"><input type="submit" id="delete" name="delete" value="Delete"></td>

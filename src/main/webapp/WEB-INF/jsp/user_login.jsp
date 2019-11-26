@@ -21,8 +21,6 @@
    		 id1.innerHTML='';
          id2.innerHTML='';
          
-         
-        //password
 
         if(password=='')
          {
@@ -31,8 +29,6 @@
          }
        
    	 
-       
-    
         if(email=='')
         {
            id1.innerHTML='plz fill correct email';
@@ -52,12 +48,11 @@
      }
     </script>
 
-<title>Login</title>
+<title>::User Login::</title>
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Header</h1>
-  <p>Resize the browser window to see the responsive effect.</p>
+  <h1>HawaiJahaz Airlines</h1>
 </div>
 
 <div class="topnav">
@@ -68,27 +63,23 @@
 
 
 <div class="column side2">
-    <center>Login For User</center>
+    <center><h3>Login For User</h3></center>
 	<form id="userloginForm" modelAttribute="usr"  action="user_login.do"	method="post"  onsubmit="valid()" >
 		<table align="center">
 			<tr>
 				<td>Email Id: </td>
-				<td><input name="email_id" id="email_id" /><div id="id1"></div></td>
+				<td><input name="email_id" id="email_id" /><div id="id1" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="password" id="password" /><div id="id2"></div></td>
+				<td><input type="password" name="password" id="password" /><div id="id2" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td align="left"><input type="submit" id="login" name="login" value="Login"></td>
 			</tr>
 
-			<tr></tr>
-			<tr>
-				<td></td>
-				<td><a href="home.jsp">Home</a></td>
-			</tr>
+			
 		</table>
 	</form>
 	<table align="center">

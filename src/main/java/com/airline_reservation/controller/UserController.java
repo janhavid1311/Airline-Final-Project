@@ -22,6 +22,7 @@ import com.airline_reservation.model.Admin;
 import com.airline_reservation.model.Booking;
 import com.airline_reservation.model.Flights;
 import com.airline_reservation.model.Passenger;
+import com.airline_reservation.model.Payment;
 import com.airline_reservation.model.Route;
 import com.airline_reservation.model.User;
 import com.airline_reservation.service.UserServiceImpl;
@@ -90,7 +91,7 @@ public class UserController {
 				 mav.addObject("status", "Thanks for msg..........................");
 			 }
 			
-			 mav.setViewName("success");
+			 mav.setViewName("user_login");
 			 
 			 return mav;
 		}
@@ -179,7 +180,7 @@ public class UserController {
 			
 			 
 			Booking booking = new Booking();
-				
+			booking.setStatus("confirmed");	
 			Flights f = new Flights(); 
 			f.setFlight_id(flight_id);
 			booking.setFlight(f);
@@ -233,8 +234,8 @@ public class UserController {
 			 bookings.getPassenger().add(passenger);
 			 session.setAttribute("booking",bookings);
 			 
-			 int flag = userRegisterService.addbook(bookings);
-			 System.out.println(flag);
+			// int flag = userRegisterService.addbook(bookings);
+			// System.out.println(flag);
 			 ModelAndView mav = new ModelAndView("make_payment");
 			 mav.addObject("booking",bookings);
 			 return mav;
@@ -245,10 +246,52 @@ public class UserController {
 		 @RequestMapping(value = "/booking4", method = RequestMethod.POST)
 			public ModelAndView makepayment(HttpServletRequest request,HttpServletResponse response, HttpSession session) throws ParseException {
 		    
-			 // read payment info and then persist :  booking , passenger , payment
 			
+			 // read payment info and then persist :  booking , passenger , payment
+				
+			 String card_type = request.getParameter("card_type");
+			 System.out.println("card type"+card_type);
+			String card_number=(request.getParameter("card_number"));
+			 System.out.println("card number:"+card_number);
+
+		
+			 String name = request.getParameter("name");
+			 System.out.println(name);
+			 /*int cvv = Integer.parseInt(request.getParameter("cvv"));
+		
+			 SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+			 Date expiry_date = formatter1.parse(request.getParameter("expiry_date"));*/
 			 
+			 Booking booking =(Booking)session.getAttribute("booking");
+			 
+			 Payment payment = new Payment();
+			 payment.setPayment_id(new Date().getTime());
+			 payment.setCard_number(card_number);
+			 payment.setCard_type(card_type);
+			 payment.setName(name);
+	         payment.setBooking(booking);
+		     booking.setPayment(payment);
+			 
+			//int flag = userRegisterService.addbook(booking);
+		    //System.out.println(flag);
+			  
+		    
+		    //boolean flag1=userRegisterService.makePayment(payment);
+		    boolean flag1=userRegisterService.makePayment(booking);
+			// boolean flag=userRegisterService.makePayment(payment);
 			 ModelAndView mav = new ModelAndView("mybill");
+		     mav.addObject("booking", booking);
+			/*	mav.addObject("card_type", card_type);
+				mav.addObject("name", name);
+				mav.addObject("cvv", cvv);
+				mav.addObject("expiry_date", expiry_date);*/
+			
+				
+				/**/
+				 /*Booking booking =(Booking)session.getAttribute("booking");
+				 booking.getPayment()
+				 session.setAttribute("booking",booking);*/
+				 
 			// mav.addObject("booking",bookings);
 			 return mav;
 				
@@ -291,7 +334,7 @@ public class UserController {
 			 System.out.println(booking_id+" "+email_id);
 			 boolean flag=userRegisterService.cancelBooking(booking_id,email_id);
 				
-				ModelAndView mav = new ModelAndView("success");
+				ModelAndView mav = new ModelAndView("cancel_booking");
 				mav.addObject("flag",flag);
 				return mav;
 			} 

@@ -139,5 +139,12 @@ public class AdminJobsDaoImpl implements AdminJobsDaoIntf{
 		return list;
 	}
 
+
+	public List<Route> getRoute() {
+		@SuppressWarnings("unchecked")
+		List<Route> route = em.createQuery("SELECT r FROM  Route r").getResultList();
+	  return  route;
+	}
+
 }
 

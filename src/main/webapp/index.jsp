@@ -12,6 +12,49 @@
 <link rel="stylesheet" href="css/mycss.css">
 
 <title>Welcome</title>
+
+<script>
+ function valid()
+     {
+         var source=document.getElementById('source').value;
+         var destination=document.getElementById('destination').value;
+         var journey_date=document.getElementById('journey_date').value;
+        
+         var flag = true;
+      
+   		 id1.innerHTML='';
+       id2.innerHTML='';
+       id3.innerHTML='';
+         
+         
+         if(source=='')
+         {
+            id1.innerHTML='please fill source';
+         flag=false;
+
+         }
+      
+        if(destination=='')
+         {
+            id2.innerHTML='please fill destination';
+            flag= false;
+         }
+       
+        if(journey_date=='')
+        {
+           id3.innerHTML='please fill journey_date';
+           flag= false;
+        }
+       
+         if (!flag) { 
+            event.preventDefault();
+        } else {
+        }
+        return flag;
+
+     }
+    </script>
+
 </head>
 <body  background="img/air1.png">
 <div class="header">
@@ -19,7 +62,7 @@
 
 </div>
 
-<div class="topnav">
+
 
 
 
@@ -32,15 +75,15 @@
 		<table align="center">
 			<tr>
 				<td>Source: </td>
-				<td><input type="text" name="source" id="source" /><div id="id1"></div></td>
+				<td><input type="text" name="source" id="source" /><div id="id1" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Destination:</td>
-				<td><input type="text" name="destination" id="destination"/><div id="id2"></div></td>
+				<td><input type="text" name="destination" id="destination"/><div id="id2" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Journey Date:</td>
-				<td><input type="date" name="journey_date" id="journey_date"/><div id="id3"></div></td>
+				<td><input type="date" name="journey_date" id="journey_date"/><div id="id3" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Class:</td>

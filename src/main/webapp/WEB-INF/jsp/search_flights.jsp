@@ -10,29 +10,86 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/mycss.css">
 
-<title>Welcome</title>
+<title>::Search Flights::</title>
+
+<script>
+ function valid()
+     {
+         var source=document.getElementById('source').value;
+         var destination=document.getElementById('destination').value;
+         
+        
+         var flag = true;
+         var sourceregex=/^[a-zA-Z ]{3,}$/;
+         var destinationregex=/^[a-zA-Z ]{3,}$/;
+   		
+   		 id1.innerHTML='';
+       id2.innerHTML='';
+         
+         
+         if(source=='')
+         {
+            id1.innerHTML='please fill source';
+         flag=false;
+
+         }
+         
+         else
+           if(sourceregex.test(source)==false)
+        {
+          id1.innerHTML="incorrect format";
+          flag=false;
+
+        } 
+
+
+        if(destination=='')
+         {
+            id2.innerHTML='please fill destination';
+            flag= false;
+         }
+       
+   	 
+       else
+         if(destinationregex.test(destination)==false)
+        {
+          id2.innerHTML="incorrect format";
+          flag=false;
+
+        } 
+       
+         if (!flag) { 
+            event.preventDefault();
+        }
+         else {
+        }
+        return flag;
+
+     }
+    </script>
+
 </head>
 <body background="img/air1.png">
 <div class="header">
-  <h1>Header</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 
 <div class="topnav">
-<%@include file="user_menu.html" %>
+<%@include file="admin_menu.html" %>
 </div>
 
 <body>
-<center>Search Flights</center>
+<center><h5>Search Flights</h5></center>
 	<form id="searchFlight" modelAttribute="flt"  action="search_flights.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
 				<td>Source: </td>
-				<td><input type="text" name="source" id="source" /><div id="id1"></div></td>
+				<td><input type="text" name="source" id="source" /><div id="id1" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Destination:</td>
-				<td><input type="text" name="destination" id="destination"/><div id="id2"></div></td>
+				<td><input type="text" name="destination" id="destination"/><div id="id2" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td></td>

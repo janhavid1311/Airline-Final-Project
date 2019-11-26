@@ -9,11 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/mycss.css">
 
-<title>Welcome</title>
+<title>Welcome  ${first_name}</title>
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Header</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 

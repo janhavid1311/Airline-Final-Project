@@ -35,7 +35,7 @@
        
          if(fname=='')
          {
-            id1.innerHTML='plz fill your First name';
+            id1.innerHTML='please fill your First name';
          flag=false;
 
          }
@@ -44,14 +44,13 @@
            if(fnameregex.test(fname)==false)
         {
           id1.innerHTML="name must be in alphabets";
-          //location.replace()
           flag=false;
 
         } 
          
          if(lname=='')
          {
-            id2.innerHTML='plz fill your last name';
+            id2.innerHTML='please fill your last name';
          flag=false;
 
          }
@@ -60,17 +59,13 @@
            if(lnameregex.test(lname)==false)
         {
           id2.innerHTML="name must be in alphabets";
-          //location.replace()
           flag=false;
 
         } 
 
-
-        //password
-
         if(password=='')
          {
-            id4.innerHTML='plz fill password';
+            id4.innerHTML='please fill password';
             flag= false;
          }
        
@@ -79,16 +74,13 @@
          if(passwordregex.test(password)==false)
         {
           id4.innerHTML="IMPROPER PASSWORD";
-          //location.replace()
           flag=false;
 
         } 
-        //date of birth
-
-        
+      
         if(dob=='')
          {
-            id5.innerHTML='plz fill DOB';
+            id5.innerHTML='please fill DOB';
            flag= false;
          }
         
@@ -108,7 +100,7 @@
         //phone
         if(contact=='')
          {
-            id6.innerHTML='plz fill correct mobile number';
+            id6.innerHTML='please fill correct mobile number';
            flag= false;
          }
         
@@ -117,13 +109,12 @@
          if(contactregex.test(contact)==false)
         {
           id6.innerHTML="IMPROPER mobile number";
-          //location.replace()
           flag=false;
 
         } 
         if(email=='')
         {
-           id3.innerHTML='plz fill correct email';
+           id3.innerHTML='please fill correct email';
           
            flag=false;
 
@@ -132,24 +123,26 @@
             if(emailregex.test(email)==false)
            {
              id3.innerHTML="Incorrect format";
-             //location.replace()
              flag=false;
 
            } 
         if (!flag) { 
             event.preventDefault();
-        } else {
+        }
+        else {
+        	alert("Successfully Registered. Please Login.")
         }
         return flag;
         
 
      }
     </script>
-<title>Login</title>
+    
+<title>::User Register::</title>
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Hawai Jahaz</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 
@@ -161,7 +154,7 @@
 
 
 <div class="column side2">
-      <center>Registration For User</center>
+      <center><h5>Registration For User</h5></center>
 	<form id="regForm" modelAttribute="user" action="register.do" method="post" onsubmit="valid()" >
 		<table align="center">
 			<tr>
@@ -178,28 +171,28 @@
 				<td>FirstName</td>
 				<td><input type="text" name="first_name"
 						id="first_name" />
-						<div id="id1"></div>
+						<div id="id1" style="font-style: italic; color: red;"></div>
 						</td>
 			</tr>
 			<tr>
 				<td>LastName</td>
 				<td><input type="text" name="last_name"
 						id="last_name" />
-						<div id="id2"></div>
+						<div id="id2" style="font-style: italic; color: red;"></div>
 						</td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><input type="email" name="email_id" id="email_id"/><div id="id3"></div></td>
+				<td><input type="email" name="email_id" id="email_id"/><div id="id3" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Password</td>
 				<td><input type="password" name="password"
-						id="password"/><div id="id4"></div></td>
+						id="password"/><div id="id4" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Date of birth</td>
-				<td><input type="date" name="dob" id="dob" ><div id="id5"></div></td>
+				<td><input type="date" name="dob" id="dob" ><div id="id5" style="font-style: italic; color: red;"></div></td>
 			</tr> 
 	 	<tr>
 				<td>Gender</td>
@@ -209,19 +202,15 @@
 			</tr> 
 			<tr>
 				<td>Phone No.</td>
-				<td><input type="text" name="ph_no" id="ph_no" /><div id="id6"></div></td>
+				<td><input type="text" name="ph_no" id="ph_no" /><div id="id6" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			 
 			<tr>
 				<td></td>
-				<td><input type="submit"  value="register"></td>
+				<td><input type="submit"  value="Register"></td>
 			</tr>
-			<tr></tr>
-			<tr>
-				<td colspan="2">
-				 <b>${status}</b>
-				<a href="index.jsp">Home</a></td>
-			</tr>
+			
+			
 		</table>
 	</form>
 </div>

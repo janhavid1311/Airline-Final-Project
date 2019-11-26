@@ -10,13 +10,13 @@
 <link rel="stylesheet" href="css/mycss.css">
 
  
-<title>Booking History</title>
+<title>Search Flights</title>
 <script>
  function valid()
      {
          var source=document.getElementById('source').value;
          var destination=document.getElementById('destination').value;
-         
+         var journey_date=document.getElementById('journey_date').value;
         
          var flag = true;
          var sourceregex=/^[a-zA-Z ]{3,}$/;
@@ -24,11 +24,11 @@
    		
    		 id1.innerHTML='';
        id2.innerHTML='';
-         
+       id3.innerHTML='';
          
          if(source=='')
          {
-            id1.innerHTML='plz fill source';
+            id1.innerHTML='please fill source';
          flag=false;
 
          }
@@ -37,17 +37,13 @@
            if(sourceregex.test(source)==false)
         {
           id1.innerHTML="incorrect format";
-          //location.replace()
           flag=false;
 
         } 
 
-
-        //password
-
         if(destination=='')
          {
-            id2.innerHTML='plz fill destination';
+            id2.innerHTML='please fill destination';
             flag= false;
          }
        
@@ -56,14 +52,22 @@
          if(destinationregex.test(destination)==false)
         {
           id2.innerHTML="incorrect format";
-          //location.replace()
           flag=false;
 
         } 
+        
+        if(journey_date=='')
+        {
+           id3.innerHTML='please fill journey_date';
+        flag=false;
+
+        }
+        
        
          if (!flag) { 
             event.preventDefault();
-        } else {
+        } 
+         else {
         }
         return flag;
 
@@ -72,7 +76,7 @@
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Hawai Jahaz</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 
@@ -84,20 +88,20 @@
 
 
 <div class="column side2">
-<center>Search Flights</center>
+<center><h3>Search Flights</h3></center>
 	<form id="searchFlights" modelAttribute="flt1"  action="search_flights_user.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
 				<td>Source: </td>
-				<td><input type="text" name="source" id="source" /><div id="id1"></div></td>
+				<td><input type="text" name="source" id="source" /><div id="id1" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Destination:</td>
-				<td><input type="text" name="destination" id="destination"/><div id="id2"></div></td>
+				<td><input type="text" name="destination" id="destination"/><div id="id2" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Journey Date:</td>
-				<td><input type="date" name="journey_date" id="journey_date"/><div id="id3"></div></td>
+				<td><input type="date" name="journey_date" id="journey_date"/><div id="id3" style="font-style: italic; color: red;"></div></td>
 			</tr>
 			<tr>
 				<td>Class:</td>
@@ -137,6 +141,7 @@
 <td>Route Id</td>
 <td>Source</td>
 <td>Destination</td>
+<td>Fare</td>
 </tr>
 
 

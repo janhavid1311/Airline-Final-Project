@@ -1,5 +1,4 @@
-<%@page import="com.airline_reservation.model.Booking"%>
-<%@page import="java.util.List"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -7,31 +6,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/mycss.css">
+
+ 
+<title>::Booking History::</title>
+
 </head>
-<body>
+<body  background="img/air1.png">
+<div class="header">
+
+  <h1>HawaiJahaz Airlines</h1>
+
+</div>
+
+<div class="topnav">
+<%@include file="user_menu.html" %>
+</div>
+<h3><center>Booking History</center></h3>
+<div class="row">
+
+
+<div class="column side2">
  <div>
 <hr>
 <table align="center" border="2">
 <tr>
-<td>Booking Id</td>
-<td>Booking Date</td>
-<td>Journey Date</td>
-<td>Class</td>
-<td>No. of Passengers</td>
+<td>Booking Id:</td>
+<td>Booking Date:</td>
+<td>Journey Date:</td>
+<td>Class:</td>
+<td>No. of Passengers:</td>
 </tr>
 
 
  <c:forEach items="${booking_list}" var="booking">
 
 
-        <tr>
-            <td><c:out value="${booking.booking_id}"/></td>
-            <td><c:out value="${booking.booking_date}"/></td>
-            <td><c:out value="${booking.journey_date}"/></td>  
-            <td><c:out value="${booking.b_class}"/></td>  
-            <td><c:out value="${booking.passenger_count}"/></td>  
-            
+
+        
+       <tr>
+            <td>${booking[0]}</td>
+          <td>${booking[1]}</td>
+           <td>${booking[2]}</td> 
+            <td>${booking[3]}</td>
+         <td>${booking[4]}</td> 
+  
+          
+        </tr>
+             
              
           
         </tr>
@@ -42,5 +65,12 @@
    
      </table>
        </div>
+       </div>
+       </div>
+       
+
+     <div class="footer">
+  <p>Airline Reservation</p>
+</div>
 </body>
 </html>

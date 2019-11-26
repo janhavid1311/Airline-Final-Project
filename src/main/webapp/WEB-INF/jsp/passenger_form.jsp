@@ -9,11 +9,103 @@
 <link rel="stylesheet" href="css/mycss.css">
 
 
-<title>Login</title>
+<title>::Passenger Form::</title>
+
+<script>
+
+
+     function valid()
+     {
+         var fname=document.getElementById('first_name').value;
+         var lname=document.getElementById('last_name').value;
+         var age=document.getElementById('age').value;
+         var email=document.getElementById('email').value;
+        
+         var flag = true;
+         var fnameregex=/^[A-Za-z]{3,}$/;
+         var lnameregex=/^[a-zA-Z ]{3,}$/;
+         var ageregex=/^[0-9]{1,3}$/;
+         var emailregex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/;
+   		 id1.innerHTML='';
+         id2.innerHTML='';
+         id3.innerHTML='';
+         id4.innerHTML='';
+       
+         if(fname=='')
+         {
+            id1.innerHTML='please fill your First name';
+         flag=false;
+
+         }
+         
+         else
+           if(fnameregex.test(fname)==false)
+        {
+          id1.innerHTML="name must be in alphabets";
+          flag=false;
+
+        } 
+         
+         if(lname=='')
+         {
+            id2.innerHTML='please fill your last name';
+         flag=false;
+
+         }
+         
+         else
+           if(lnameregex.test(lname)==false)
+        {
+          id2.innerHTML="name must be in alphabets";
+          flag=false;
+
+        } 
+         
+         if(age=='')
+         {
+            id3.innerHTML='please fill your age';
+         flag=false;
+
+         }
+         else
+             if(ageregex.test(age)==false)
+          {
+            id3.innerHTML="age must be in number";
+            flag=false;
+
+          } 
+
+       
+        if(email=='')
+        {
+           id4.innerHTML='please fill correct email';
+          
+           flag=false;
+
+        }
+        else
+            if(emailregex.test(email)==false)
+           {
+             id4.innerHTML="Incorrect format";
+             flag=false;
+
+           } 
+        if (!flag) { 
+            event.preventDefault();
+        } 
+        else {
+        	
+        }
+        return flag;
+     
+     }
+    </script>
+
+
 </head>
 <body  background="img/air1.png">
 <div class="header">
-  <h1>Hawai Jahaz</h1>
+  <h1>HawaiJahaz Airlines</h1>
 
 </div>
 
@@ -25,26 +117,31 @@
 
 
 <div class="column side2">
-      <center>Passenger Form</center>
-	   <form id="passForm"  action="booking3.do" method="post" >
+      <center><h5>Passenger Form</h5></center>
+	   <form id="passForm"  action="booking3.do" method="post" onsubmit="valid()">
         <table>
         <tr>
-        <td>
-          <input type="text"  name="first_name" id="first_name" placeholder="First Name"  class="input1"/></td></tr>
-   <tr><td> <div id="id1" style="color: red"></div></td>
+        <td>First Name:
+          <input type="text"  name="first_name" id="first_name" placeholder="First Name"/><div id="id1" style="color: red"></div></td></tr>
+   <tr><td> </td>
           </tr>
-         <tr><td>  <input type="text"  name="last_name"  id="last_name" placeholder="Last Number"  class="input1"/></td></tr>
-          <tr> <td><div id="id2" style="color: red"></div></td>
+         <tr><td>Last Name: <input type="text"  name="last_name"  id="last_name" placeholder="Last Name" /><div id="id2" style="color: red"></div></td></tr>
+          <tr> <td></td>
            </tr>
            
-           <tr><td> <input  type="text" name="age"  id="age" placeholder="Age"  class="input1"/></td></tr>
-         <tr> <td><div id="id3" style="color: red"></div></td>
+           <tr><td>Age: <input  type="text" name="age"  id="age" placeholder="Age"/><div id="id3" style="color: red"></div></td></tr>
+         <tr> <td></td>
          
-          <tr><td> <input  type="text" name="gender"  id="gender" placeholder="Gender"  class="input1"/></td></tr>
-         <tr> <td><div id="id4" style="color: red"></div></td>
+          <tr>
+				
+				<td>Gender:<input type="radio" name="gender" id="gender1" value="male" checked/>Male
+			   <input type="radio" name="gender" id="gender2" value="female" />Female
+			   </td>
+			</tr> 
+         <tr> <td></td>
          
-         <tr><td> <input  type="text" name="email"  id="email" placeholder="Email Id"  class="input1"/></td></tr>
-         <tr> <td><div id="id5" style="color: red"></div></td>
+         <tr><td>Email Id:<input  type="text" name="email"  id="email" placeholder="Email Id"/><div id="id4" style="color: red"></div></td></tr>
+         <tr> <td></td>
          
 
           <tr><td> <button type="submit" id="add_passenger"  class="btn btn-primary btn-block btn-large">Add Passenger</button></td></tr>

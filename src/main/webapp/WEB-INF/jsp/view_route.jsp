@@ -1,3 +1,4 @@
+
 <%@page import="com.airline_reservation.model.User"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -10,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/mycss.css">
 
-<title>::View Flights::</title>
+<title>Welcome</title>
 </head>
 <body background="img/air1.png">
 <div class="header">
@@ -26,31 +27,21 @@
 
 
 <div class="column side2">
- <h3><center>Flight Details</center></h3>
+ <h3><center>Route Details</center></h3>
 <hr size="4" color="gray"/>
 
 <table align="center" border="2">
 <tr>
-<td>Flight Id</td>
-<td>Arrival Time</td>
-<td>Departure Time</td>
-<td>No. of Business class seats</td>
-<td>No. of Economy class seats</td>
 <td>Route Id</td>
 <td>Source</td>
 <td>Destination</td>
 </tr>
 
-    <c:forEach items="${flightlist}" var="flight">
+    <c:forEach items="${routelist}" var="route">
         <tr>
-            <td><c:out value="${flight.flight_id}"/></td>
-            <td><c:out value="${flight.arrival_time}"/></td>
-            <td><c:out value="${flight.departure_time}"/></td>  
-            <td><c:out value="${flight.business_seats}"/></td>  
-            <td><c:out value="${flight.economy_seats}"/></td>  
-             <td><c:out value="${flight.route.route_id}"/></td> 
-             <td><c:out value="${flight.route.source}"/></td> 
-             <td><c:out value="${flight.route.destination}"/></td> 
+             <td><c:out value="${route.route_id}"/></td> 
+             <td><c:out value="${route.source}"/></td> 
+             <td><c:out value="${route.destination}"/></td> 
           
         </tr>
     </c:forEach> 
