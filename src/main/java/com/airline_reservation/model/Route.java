@@ -50,11 +50,7 @@ public class Route {
 	public Route() {
 		super();
 	}
-	/*@Override
-	public String toString() {
-		return "Route [route_id=" + route_id + ", source=" + source + ", destination=" + destination + ", flight_list="
-				+ flight_list + "]";
-	}*/
+	
 	
 	}
 

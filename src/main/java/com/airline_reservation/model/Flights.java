@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -27,7 +28,9 @@ public class Flights {
 	private int base_fare_eco;
 	private int base_fare_busi;
 	private int fuel_charge;
-	private int security_fee;
+	@Column(name="security_fee")
+	private int sec_fee;
+	
 	private int dev_fee;
 	
 	public int getBase_fare_eco() {
@@ -48,11 +51,11 @@ public class Flights {
 	public void setFuel_charge(int fuel_charge) {
 		this.fuel_charge = fuel_charge;
 	}
-	public int getSecurity_fee() {
-		return security_fee;
+	public int getSec_fee() {
+		return sec_fee;
 	}
-	public void setSecurity_fee(int security_fee) {
-		this.security_fee = security_fee;
+	public void setSec_fee(int sec_fee) {
+		this.sec_fee = sec_fee;
 	}
 	public int getDev_fee() {
 		return dev_fee;
@@ -69,10 +72,7 @@ public class Flights {
 	private List<Booking> booking=new ArrayList<Booking>();
 	
 	
-/*	@OneToOne
-	@JoinColumn(name="flight_id")
-	private Ticket_Fare ticket_Fare;*/
-	
+
 	public List<Booking> getBooking() {
 		return booking;
 	}

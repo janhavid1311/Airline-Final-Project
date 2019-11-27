@@ -63,14 +63,11 @@
 </div>
 
 
-
-
-
-<a href='admin_login.do'>Admin Login</a> |
-<a href='register.do'>User Registration</a> |
-<a href='user_login.do'>User Login</a> 
+<div class="topnav">
+<%@include file="/WEB-INF/jsp/menu.html" %>
 </div>
-<center>Search Flights</center>
+</div>
+<center><h3>Search Flights</h3></center>
 	<form id="searchFlights" modelAttribute="flt1"  action="search_flights_user.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>
@@ -94,17 +91,6 @@
 			<tr>
 			<td>
 				<label>No. of Passengers:</label> <input type="text" name="passenger_count">
-				<select name= "noOfPsg" id="title">
-				<option value= "1">1</option>
-				<option value= "2">2</option>
-				<option value= "3">3</option>
-				<option value= "4">4</option>
-				<option value= "5">5</option>
-				<option value= "6">6</option>
-				<option value= "7">7</option>
-				<option value= "8">8</option>
-				<option value= "9">9</option>
-				</select>
 				</td>
 			</tr>
 			<tr>

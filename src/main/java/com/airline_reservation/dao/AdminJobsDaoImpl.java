@@ -16,8 +16,6 @@ import com.airline_reservation.model.Flights;
 import com.airline_reservation.model.Route;
 import com.airline_reservation.model.User;
 
-
-//import com.airline_reservation.model.Flights;
 @Repository
 public class AdminJobsDaoImpl implements AdminJobsDaoIntf{
 	
@@ -36,7 +34,7 @@ public class AdminJobsDaoImpl implements AdminJobsDaoIntf{
 		catch(Exception e) {
 			System.out.println(e); 
 			}
-		//em.close();
+
 		System.out.println(ad);
 		return ad;
 	  }
@@ -46,10 +44,7 @@ public class AdminJobsDaoImpl implements AdminJobsDaoIntf{
 		boolean flag=false;
 	    try {
 	    	System.out.println(route);
-		//em.getTransaction().begin( ); 
 		em.persist(route);
-		//em.getTransaction().commit();
-		//em.close();
 		System.out.println("end");
 		flag=true;
 	    }
@@ -63,19 +58,13 @@ public class AdminJobsDaoImpl implements AdminJobsDaoIntf{
 		boolean flag=false;
 	    try {
 	    	System.out.println(flight);
-		//em.getTransaction().begin( ); 
 		em.persist(flight);
-		//em.getTransaction().commit();
-		//em.close();
 		System.out.println("end");
 		flag=true;
 	    }
 	    catch(Exception e) { System.out.println("Error:"+e);  }
 	    return flag;
 	}
-	
-	
-	
 		
 	public boolean deleteFlight(String flight_id) {
 		System.out.println("Dao:"+flight_id);
@@ -92,13 +81,8 @@ public class AdminJobsDaoImpl implements AdminJobsDaoIntf{
 			System.out.println("Unable to remove flight "+flight_id);
 		}
 		return flag;
-		
- 
-		
 
-	
 	}
-
 
 	public List<User> getUsers() {
 		 @SuppressWarnings("unchecked")

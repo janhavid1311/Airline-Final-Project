@@ -27,10 +27,7 @@ public class UserDaoImpl implements UserDaoIntf{
 		boolean flag=false;
 	    try {
 	    	System.out.println(user);
-		/*em.getTransaction().begin( ); */
 		em.persist(user);
-		//em.getTransaction().commit();
-		//em.close();
 		System.out.println("end");
 		flag=true;
 	    }
@@ -50,7 +47,6 @@ public class UserDaoImpl implements UserDaoIntf{
 			catch(Exception e) {
 				System.out.println(e); 
 				}
-			//em.close();
 			System.out.println(ad);
 			return ad;
 	}
@@ -80,7 +76,7 @@ public class UserDaoImpl implements UserDaoIntf{
 				}
 				catch(Exception e){}
 			}
-			//int totlreservedseat=(Integer)em.createQuery(sql1).getResultList().get(0);
+	
 			System.out.println("totalseat:"+totalseat+" \ntotlreservedseat:"+totlreservedseat);
 			if ((totalseat-totlreservedseat)>=passenger_count)
 				finallist.add(f);
@@ -97,11 +93,7 @@ public class UserDaoImpl implements UserDaoIntf{
 			@SuppressWarnings("unchecked")
 		
 			 List<Booking> lis = new ArrayList<Booking>();
-		/* lis = em.createQuery("select f from Booking f where f.user.email_id=:email_id")
-					.setParameter("email_id",email_id).getResultList();*/
-		 /*lis = em.createNativeQuery("select booking0_.booking_id as booking_id1_1_, booking0_.b_class as b_class2_1_, booking0_.booking_date as booking_date3_1_, booking0_.flight_id as flight_id6_1_, booking0_.journey_date as journey_date4_1_, booking0_.passenger_count as passenger_count5_1_, "
-		 		+ "booking0_.email_id as email_id7_1_ from BOOKING_MASTER booking0_ where booking0_.email_id=:email").setParameter("email", email_id).getResultList();		 
-		*/
+		
 		 
 		 lis = em.createNativeQuery("select * from BOOKING_MASTER b where b.email_id=:email").setParameter("email", email_id).getResultList();		 
 		 System.out.println(lis);
@@ -141,33 +133,15 @@ public class UserDaoImpl implements UserDaoIntf{
 		return flag;
 	}
 		
-		/*
-		Query query = em.createQuery("delete from booking_master b where b.booking_id=:booking_id and b.user.email_id=:email_id and b.journey_date>:curdate" );
-		query.setParameter("booking_id", booking_id);
-		query.setParameter("email_id", email_id);
-		query.setParameter("curdate", new Date());
-		int res = query.executeUpdate();
-		
-		//System.out.println(res1+"  "+res2);
-		
-		if(res>0){
-			flag=true;
-		}
-		else{
-			System.out.println("Unable to cancel booking "+booking_id);
-		}
-		return flag;
-		
-	} */
+	
 		
 	public boolean makePayment(Booking booking) {
 		boolean flag=false;
 	    try {
 	    	System.out.println(booking);
-		/*em.getTransaction().begin( ); */
+	
 		em.persist(booking);
-		//em.getTransaction().commit();
-		//em.close();
+	
 		System.out.println("end");
 		flag=true;
 	    }

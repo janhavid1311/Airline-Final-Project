@@ -52,11 +52,8 @@ public class UserController {
 		  String password = request.getParameter("password");
 		 SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
 		 Date dob = formatter1.parse(request.getParameter("dob"));
-		 System.out.println("DOB:"+dob);
-		  //String dob = request.getParameter("dob");
 		  String gender =request.getParameter("gender");
 		  long ph_no =Long.parseLong(request.getParameter("ph_no"));
-		 // String ph_no = request.getParameter("ph_no");
 		  
 			User user1= new User();
 			user1.setTitle(title);
@@ -80,8 +77,6 @@ public class UserController {
 			mav.addObject("ph_no", ph_no);
 		
 			
-			
-			
 			 if (flag)
 			 {
 				 mav.addObject("status", "Thanks for msg..........................");
@@ -95,6 +90,7 @@ public class UserController {
 			 
 			 return mav;
 		}
+	 
 	 
 	 @RequestMapping(value = "/user_login", method = RequestMethod.GET)
 	  public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
@@ -131,8 +127,7 @@ public class UserController {
 	  
 	  //search flights
 		 @RequestMapping(value = "/search_flights_user", method = RequestMethod.GET)
-		 public ModelAndView searchFlights_user(){
-			 
+		 public ModelAndView searchFlights_user(){			 
 		 	 ModelAndView mav = new ModelAndView("search_flights_user");
 		 	 return mav;
 		  }
@@ -146,18 +141,15 @@ public class UserController {
 				 System.out.println("date of journey:"+journey_date);
 				String b_class = request.getParameter("class");
 				int passenger_count =Integer.parseInt(request.getParameter("passenger_count").trim());
-				
-				
-				//store booking erquired info in 
+								
+				//store booking enquired info in 
 				session.setAttribute("source", source);
 				session.setAttribute("destination", destination);
 				session.setAttribute("journey_date", journey_date);
 				session.setAttribute("b_class", b_class);
 				session.setAttribute("passenger_count", passenger_count);
-				
-				
+								
 				List<Flights> flist = userRegisterService.searchFlights_user(source, destination, journey_date,b_class, passenger_count);
-				System.out.println("flist:"+flist);
 				ModelAndView mav = new ModelAndView("search_flights_user");
 				mav.addObject("flights_list",flist);
 				return mav;
@@ -177,20 +169,13 @@ public class UserController {
 			 String b_class =(String)session.getAttribute("b_class");
 			 Date journey_date =(Date)session.getAttribute("journey_date");
 			 int passenger_count =(Integer)session.getAttribute("passenger_count");
-			
 			 
 			Booking booking = new Booking();
 			booking.setStatus("confirmed");	
 			Flights f = new Flights(); 
 			f.setFlight_id(flight_id);
 			booking.setFlight(f);
-			
 		
-			//booking.setSource(source);
-			//booking.setDestination(destination);
-			
-			
-			
 			booking.setBooking_date(new Date());
 			booking.setB_class(b_class);
 			booking.setJourney_date(journey_date);
@@ -233,9 +218,7 @@ public class UserController {
 			 Booking bookings =(Booking)session.getAttribute("booking");
 			 bookings.getPassenger().add(passenger);
 			 session.setAttribute("booking",bookings);
-			 
-			// int flag = userRegisterService.addbook(bookings);
-			// System.out.println(flag);
+			
 			 ModelAndView mav = new ModelAndView("make_payment");
 			 mav.addObject("booking",bookings);
 			 return mav;
@@ -246,8 +229,6 @@ public class UserController {
 		 @RequestMapping(value = "/booking4", method = RequestMethod.POST)
 			public ModelAndView makepayment(HttpServletRequest request,HttpServletResponse response, HttpSession session) throws ParseException {
 		    
-			
-			 // read payment info and then persist :  booking , passenger , payment
 				
 			 String card_type = request.getParameter("card_type");
 			 System.out.println("card type"+card_type);
@@ -257,11 +238,7 @@ public class UserController {
 		
 			 String name = request.getParameter("name");
 			 System.out.println(name);
-			 /*int cvv = Integer.parseInt(request.getParameter("cvv"));
-		
-			 SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
-			 Date expiry_date = formatter1.parse(request.getParameter("expiry_date"));*/
-			 
+			
 			 Booking booking =(Booking)session.getAttribute("booking");
 			 
 			 Payment payment = new Payment();
@@ -271,44 +248,22 @@ public class UserController {
 			 payment.setName(name);
 	         payment.setBooking(booking);
 		     booking.setPayment(payment);
-			 
-			//int flag = userRegisterService.addbook(booking);
-		    //System.out.println(flag);
-			  
-		    
-		    //boolean flag1=userRegisterService.makePayment(payment);
+			
 		    boolean flag1=userRegisterService.makePayment(booking);
-			// boolean flag=userRegisterService.makePayment(payment);
+	
 			 ModelAndView mav = new ModelAndView("mybill");
 		     mav.addObject("booking", booking);
-			/*	mav.addObject("card_type", card_type);
-				mav.addObject("name", name);
-				mav.addObject("cvv", cvv);
-				mav.addObject("expiry_date", expiry_date);*/
-			
-				
-				/**/
-				 /*Booking booking =(Booking)session.getAttribute("booking");
-				 booking.getPayment()
-				 session.setAttribute("booking",booking);*/
-				 
-			// mav.addObject("booking",bookings);
 			 return mav;
 				
 				
 		 }
-		 
-		 //history
+	
 		 @RequestMapping(value = "/result", method = RequestMethod.GET)
 		 public ModelAndView result(HttpSession session){
 
-			 String email_id = (String)session.getAttribute("email_id");
-			 
-			List<Booking> lis = new ArrayList<Booking>();
-		
+			 String email_id = (String)session.getAttribute("email_id");			 
+			List<Booking> lis = new ArrayList<Booking>();		
 			 lis = userRegisterService.result(email_id);
-			 System.out.println(lis);
-			 System.out.println("size"+lis.size());
 		    for(int i = 0; i < lis.size(); i++)
 				 {
 				     System.out.println(lis.get(i));

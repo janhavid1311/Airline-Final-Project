@@ -117,7 +117,7 @@
 
 
 <div class="column side2">
-      <center><h5>Passenger Form</h5></center>
+      <center><h3>Passenger Form</h3></center>
 	   <form id="passForm"  action="booking3.do" method="post" onsubmit="valid()">
         <table>
         <tr>

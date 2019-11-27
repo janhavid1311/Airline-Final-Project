@@ -95,7 +95,7 @@ public class AdminController {
 				 mav.addObject("status", "Thanks for msg..........................");
 			 }
 			
-			 mav.setViewName("success");
+			 mav.setViewName("add_route");
 			 
 			 return mav;
 		}
@@ -117,12 +117,16 @@ public class AdminController {
 		  
 		  int business_seats =Integer.parseInt(request.getParameter("business_seats"));
 		  int economy_seats =Integer.parseInt(request.getParameter("economy_seats"));
+		  
+		  int base_fare_eco =Integer.parseInt(request.getParameter("base_fare_eco"));
+		  int base_fare_busi =Integer.parseInt(request.getParameter("base_fare_busi"));
+		  int fuel_charge =Integer.parseInt(request.getParameter("fuel_charge"));
+		  int sec_fee =Integer.parseInt(request.getParameter("sec_fee"));
+		  int dev_fee =Integer.parseInt(request.getParameter("dev_fee"));
 		 
 		  Route route1=new Route();
 		  route1.setRoute_id(request.getParameter("route_id"));
-		  
-		   System.out.println("flights added");
-		  
+		 
 			Flights flight= new Flights();
 			flight.setFlight_id(flight_id);
 			flight.setArrival_time(arrival_time);
@@ -130,8 +134,12 @@ public class AdminController {
 			flight.setBusiness_seats(business_seats);
 			flight.setEconomy_seats(economy_seats);
 			flight.setRoute(route1);
-			
-		    
+			flight.setBase_fare_eco(base_fare_eco);
+			flight.setBase_fare_busi(base_fare_busi);
+			flight.setFuel_charge(fuel_charge);
+			flight.setSec_fee(sec_fee);
+			flight.setDev_fee(dev_fee);
+
 			
 			boolean flag=adminServiceImpl.addFlight(flight);
 			ModelAndView mav= new ModelAndView();
@@ -140,6 +148,11 @@ public class AdminController {
 			mav.addObject("departure_time", departure_time);	
 			mav.addObject("business_seats", business_seats);
 			mav.addObject("economy_seats", economy_seats);
+			mav.addObject("base_fare_eco", base_fare_eco);
+			mav.addObject("base_fare_busi", base_fare_busi);
+			mav.addObject("fuel_charge", fuel_charge);
+			mav.addObject("sec_fee", sec_fee);
+			mav.addObject("dev_fee", dev_fee);
 			
 			 if (flag)
 			 {
@@ -150,19 +163,12 @@ public class AdminController {
 				 mav.addObject("status", "Thanks for msg..........................");
 			 }
 			
-			 mav.setViewName("success");
+			 mav.setViewName("add_flight");
 			 
 			 return mav;
 		}
 	
 
-	  
-	 /*@RequestMapping(value = "/delete_flight", method = RequestMethod.GET)
-		public ModelAndView deleteFlight(HttpServletRequest request) {
-			int employeeId = Integer.parseInt(request.getParameter("id"));
-			employeeService.deleteEmployee(employeeId);
-			return new ModelAndView("redirect:/");
-		}  */
 	 @RequestMapping(value = "/delete_flight", method = RequestMethod.GET)
 	  public ModelAndView deleteFlight(HttpServletRequest request, HttpServletResponse response) {
 		 System.out.println("Controller");
@@ -170,6 +176,7 @@ public class AdminController {
 	    mav.addObject("flight", new Flights());
 	    return mav;
 	  }
+	 
 	 @RequestMapping(value = "/delete_flight", method = RequestMethod.POST)
 		public ModelAndView deleteFlightProcess(HttpServletRequest request,HttpServletResponse response) {
 		 System.out.println("Controller");
@@ -182,6 +189,7 @@ public class AdminController {
 			mav.addObject("flag",flag);
 			return mav;
 		}  
+	 
 	 
 	 @RequestMapping(value = "/view_users", method = RequestMethod.GET)
 	 public ModelAndView viewUsers() {
@@ -198,7 +206,6 @@ public class AdminController {
 	 	 return mav;
 	  }
 	 
-	 //search flights
 	 @RequestMapping(value = "/search_flights", method = RequestMethod.GET)
 	 public ModelAndView searchFlights(){
 		 

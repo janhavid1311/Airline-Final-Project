@@ -63,7 +63,7 @@
 
 
 <div class="column side2">
-     <center><h5>Login For Admin</h5></center>
+     <center><h3>Login For Admin</h3></center>
 	<form id="loginForm" modelAttribute="adm"  action="admin_login.do"	method="post" onsubmit="valid()">
 		<table align="center">
 			<tr>

@@ -50,7 +50,6 @@ public class Booking {
 	@JoinColumn(name="booking_id")
 	private List<Passenger> passenger = new ArrayList<Passenger>();
 
-	//@OneToOne(mappedBy="booking",cascade=CascadeType.ALL)
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="booking_id")

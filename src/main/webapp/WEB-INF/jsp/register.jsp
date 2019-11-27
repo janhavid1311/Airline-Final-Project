@@ -154,7 +154,7 @@
 
 
 <div class="column side2">
-      <center><h5>Registration For User</h5></center>
+      <center><h3>Registration For User</h3></center>
 	<form id="regForm" modelAttribute="user" action="register.do" method="post" onsubmit="valid()" >
 		<table align="center">
 			<tr>
